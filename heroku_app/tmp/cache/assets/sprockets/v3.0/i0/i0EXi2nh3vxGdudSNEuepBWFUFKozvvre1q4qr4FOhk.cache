@@ -1,0 +1,12 @@
+I"ô(function() {
+  $(function() {
+    var h, w;
+    w = $('.wrapper').width();
+    h = $('.wrapper').height();
+    $('#canvas').attr('width', w);
+    $('#canvas').attr('height', h);
+    return console.log("reading success");
+  });
+
+}).call(this);
+:ET

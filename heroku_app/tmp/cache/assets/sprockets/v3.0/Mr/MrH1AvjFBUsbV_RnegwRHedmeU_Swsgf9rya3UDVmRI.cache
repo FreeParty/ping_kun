@@ -1,0 +1,22 @@
+I".(function() {
+  $(function() {
+    var h, thisMonth, w;
+    w = $('.wrapper').width();
+    h = $('.wrapper').height();
+    $('#canvas').attr('width', w);
+    $('#canvas').attr('height', h);
+    return thisMonth = function() {
+      var dayList, i, j, now, ref;
+      dayList = [];
+      now = new Date();
+      now.setMonth(now.getMonth() + 1);
+      now.setDate(0);
+      for (i = j = 1, ref = getDate(); 1 <= ref ? j <= ref : j >= ref; i = 1 <= ref ? ++j : --j) {
+        dayList.push(i + "日");
+      }
+      return dayList;
+    };
+  });
+
+}).call(this);
+:ET

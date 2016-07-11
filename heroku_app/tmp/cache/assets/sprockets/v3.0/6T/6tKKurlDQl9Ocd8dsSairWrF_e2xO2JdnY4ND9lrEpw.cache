@@ -1,0 +1,11 @@
+I"Ð(function() {
+  $(function() {
+    var h, w;
+    w = $('.wrapper').width();
+    h = $('.wrapper').height();
+    $('#canvas').attr('width', w);
+    return $('#canvas').attr('height', h);
+  });
+
+}).call(this);
+:ET

@@ -1,0 +1,113 @@
+<div class="container">
+  <h1>でんだいpingくん</h1>
+  <p><%= @data["year"] %>年<%= @data["month"] %>月<%= @data["day"] %>日のwifiの様子</p>
+  <small>本グラフは学内ルーターによるpingの結果によって作成されていますが、細かいところは何も考えていないので<span style="color:red">全く当てにならない</span>といって怒らないでください。</small>
+  <div class="wrapper">
+    <canvas id="myChart" style="width:100%; height:100%"></canvas>
+  </div>
+</div>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/1.0.2/Chart.min.js"></script> -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.0.2/Chart.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+<script>
+
+//get day
+var thisMonth = function(){
+  var dayList = [];
+  var now = new Date();
+  now.setMonth(now.getMonth()+1);
+  now.setDate(0);
+  //return now.getDate()
+  for(i=1;i<=now.getDate();i++){
+    dayList.push(i+"日");
+  }
+  return dayList;
+}
+
+var thisTime = function(){
+  var timeList = [];
+  for(i=8;i<=21;i++){
+    timeList.push(i + "時");
+  }
+  return timeList;
+}
+
+
+
+// var data = {
+//  labels: thisTime(),//X軸のラベル
+//  datasets: [
+//   {
+//    label: "My First dataset",//項目名
+//    fillColor: "rgba(54,209,207,0.1)",//塗りつぶす色
+//    strokeColor: "rgba(220,220,220,1)",//線の色
+//    pointColor: "rgba(220,220,220,1)",//値の点を塗りつぶす色
+//    pointStrokeColor: "#fff",//値の点の枠線の色
+//    pointHighlightFill: "#fff",//マウスオーバー時値の点を塗りつぶす色
+//    pointHighlightStroke: "rgba(220,220,220,1)",//マウスオーバー時値の点の枠線を塗りつぶす色
+//    data: [65, 59, 80, 81, 56, 55, 40],//値
+//    scaleOverlay : false,
+//  	scaleOverride : true,
+//  	scaleSteps : 3,
+//  	scaleStepWidth : 50,
+//   }
+//  ]
+// };
+//
+// var myChart = new Chart(document.getElementById("mycanvas").getContext("2d")).Line(data);
+
+
+
+// $(document).on('ready', function() {
+//   var ctx, data, myChart;
+//   ctx = document.getElementById('myChart');
+//   if (ctx !== null) {
+//     data = {
+//       labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+//       datasets: [
+//         {
+//           label: 'My First dataset',
+//           fill: false,
+//           lineTension: 0.1,
+//           backgroundColor: 'rgba(75,192,192,0.4)',
+//           borderColor: 'rgba(75,192,192,1)',
+//           borderCapStyle: 'butt',
+//           borderDash: [],
+//           borderDashOffset: 0.0,
+//           borderJoinStyle: 'miter',
+//           pointBorderColor: 'rgba(75,192,192,1)',
+//           pointBackgroundColor: '#fff',
+//           pointBorderWidth: 1,
+//           pointHoverRadius: 5,
+//           pointHoverBackgroundColor: 'rgba(75,192,192,1)',
+//           pointHoverBorderColor: 'rgba(220,220,220,1)',
+//           pointHoverBorderWidth: 2,
+//           pointRadius: 1,
+//           pointHitRadius: 10,
+//           data: [65, 59, 80, 81, 56, 55, 40]
+//         }
+//       ]
+//     };
+//     return myChart = new Chart.Line(ctx, {
+//       data: data,
+//       options: {
+//         scales: {
+//           yAxes: [
+//             {
+//               ticks: {
+//                 beginAtZero: true,
+//                 min: 0,
+//                 max: 100
+//               }
+//             }
+//           ]
+//         }
+//       }
+//     });
+//   }
+// });
+
+</script>
+<%= javascript_include_tag "application" %>

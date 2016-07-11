@@ -1,0 +1,13 @@
+I" (function() {
+  $(function() {
+    var h, w;
+    w = $('.wrapper').width();
+    h = $('.wrapper').height();
+    $('#canvas').attr('width', w);
+    $('#canvas').attr('height', h);
+    console.log("reading success");
+    return $(document).on('ready', function() {});
+  });
+
+}).call(this);
+:ET

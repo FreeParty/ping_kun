@@ -1,0 +1,42 @@
+I"¸(function() {
+  $(function() {
+    var data, h, thisMonth, w;
+    w = $('.wrapper').width();
+    h = $('.wrapper').height();
+    $('#canvas').attr('width', w);
+    $('#canvas').attr('height', h);
+    thisMonth = function() {
+      var dayList, i, j, last, now, ref;
+      dayList = [];
+      now = new Date();
+      now.setMonth(now.getMonth() + 1);
+      now.setDate(0);
+      last = now.getDate();
+      for (i = j = 0, ref = last; 0 <= ref ? j <= ref : j >= ref; i = 0 <= ref ? ++j : --j) {
+        dayList.push(i + "æ—¥");
+      }
+      return dayList;
+    };
+    return data = function() {
+      var myChart;
+      ({
+        labels: thisMonth(),
+        datasets: [
+          {
+            label: "My First dataset",
+            fillColor: "rgba(220,220,220,0.2)",
+            strokeColor: "rgba(220,220,220,1)",
+            pointColor: "rgba(220,220,220,1)",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "rgba(220,220,220,1)",
+            data: [65, 59, 80, 81, 56, 55, 40]
+          }
+        ]
+      });
+      return myChart = new Chart(document.getElementById("mycanvas").getContext("2d")).Line(data);
+    };
+  });
+
+}).call(this);
+:ET
